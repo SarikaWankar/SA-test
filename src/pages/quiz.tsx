@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { QUESTIONS } from '../questions';
 import './quiz.scss'
 
-const Quiz = () => {
+const Quiz = ({callbackFunction}:any) => {
     const [questions,setQuestions]=useState(QUESTIONS)
     const [answers, setAnswers] = useState(new Array(Object.keys(questions).length).fill(null));
     const [ratings, setRatings] = useState<number[]>([]);
@@ -60,7 +60,7 @@ const Quiz = () => {
             <div>
                 <h3>Average Rating: {calculateAverageRating()}%</h3>
             </div>
-            
+            <button onClick={callbackFunction}>Click Child</button>
         </div>
     );
 };
